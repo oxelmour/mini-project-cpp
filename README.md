@@ -1,5 +1,5 @@
 # Money Management
-Program ini dibuat untuk membantu mahasiswa dalam mengatur keuangan finansial nya seperti tracking keluar masuk duit, mencatat
+Program ini dibuat untuk membantu mahasiswa dalam mengatur keuangan finansial nya seperti tracking keluar masuk duit, mencatat pengeluaran ,menghitung total pengeluaran,dan mencari transaksi.
 
 ## FITUR KEBANGGAAN
 1. Fitur Utama Input & Output Transaksi

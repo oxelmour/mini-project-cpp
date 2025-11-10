@@ -29,7 +29,7 @@ int main() {
     return 0;
 }
 
-// ---------- Implementasi kode ----------
+// Implementasi kode 
 void tambahTransaksi() {
 
 }
