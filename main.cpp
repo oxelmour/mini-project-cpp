@@ -82,7 +82,7 @@ int main() {
         }
 
 
-    } while (pilihan <= 5 && pilihan >= 0);
+    } while (pilihan <= 5 && pilihan != 0);
 
     return 0;
 }
