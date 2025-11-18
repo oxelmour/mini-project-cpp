@@ -6,22 +6,29 @@ const int MAX_TRANSAKSI = 100;
 
 struct Transaksi {
     string jenis;     
-    string kategori;
+    string kategori; // pemasukan atau pengeluaran
     int jumlah;
     string tanggal;
 };
 
 // global static array
 Transaksi daftar[MAX_TRANSAKSI];
+
 int totalTransaksi = 0;
 
 // Deklarasi terkait fitur fitur yang dibuat
-void tambahTransaksi() {
-    cout << "Fitur transaksi" << endl;
+void tambahTransaksi(Transaksi d[]) {
+
 }
 
-void tampilkanTransaksi(){
-    cout << "Fitur Menampilkan Transaksi" << endl;
+void tampilkanTransaksi(Transaksi d[]){
+    if(totalTransaksi == 0){
+        cout << "Belum ada transaksi." << endl;
+    }else{
+        for(int i = 0 ; i < totalTransaksi;i++){
+            cout << "No " << i+1 << " [ " << d[i].jenis << " ]" << "Kategori " << d[i].kategori << "- Rp " << d[i].jumlah << " ( " << d[i].tanggal << " )" << endl;
+        }
+    }
 }
 
 void tampilkanTotal() {
@@ -61,11 +68,11 @@ int main() {
 
         switch (pilihan) {
             case 1:
-            tambahTransaksi();
+            tambahTransaksi(daftar);
             break;
 
             case 2:
-            tampilkanTransaksi();
+            tampilkanTransaksi(daftar);
             break;
 
             case 3:
