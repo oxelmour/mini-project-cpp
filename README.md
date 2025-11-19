@@ -7,7 +7,7 @@ Program ini dibuat untuk membantu mahasiswa dalam mengatur keuangan finansial ny
 1. Fitur Utama Input & Output Transaksi
 2. Tampilkan Riwayat Transaksi
 3. Hitung Total Uang
-4. Filter Transaksi Berdasarkan Jenis
+4. Filter Transaksi Berdasarkan Jenis (pemasukan/pengeluaran)
 5. Cari Transaksi
 6. Menu Navigasi
 
