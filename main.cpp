@@ -97,7 +97,56 @@ void filterTransaksi() {
 }
 
 void cariTransaksi() {
-    cout << "Fitur Mencari Transaksi" << endl;
+    if (totalTransaksi == 0) {
+        cout << "Belum ada transaksi." << endl;
+        return;
+    }
+
+    cout << "=== Cari Transaksi ===" << endl;
+    cout << "Cari berdasarkan:" << endl;
+    cout << "1. Jenis" << endl;
+    cout << "2. Kategori" << endl;
+    cout << "3. Tanggal" << endl;
+    cout << "Pilih: ";
+
+    int p;
+    cin >> p;
+
+    cin.ignore(); // bersihkan buffer
+
+    string kunci;
+    cout << "Masukkan kata kunci : ";
+    getline(cin, kunci);
+
+    bool ada = false;
+
+    cout << "\nHASIL PENCARIAN:" << endl;
+
+    for (int i = 0; i < totalTransaksi; i++) {
+
+        bool cocok = false;
+
+        if (p == 1)
+            cocok = (daftar[i].jenis == kunci);
+        else if (p == 2)
+            cocok = (daftar[i].kategori == kunci);
+        else if (p == 3)
+            cocok = (daftar[i].tanggal == kunci);
+
+        if (cocok) {
+            ada = true;
+            cout << "No " << i + 1
+                 << " | " << daftar[i].jenis
+                 << " | " << daftar[i].kategori
+                 << " | Rp " << daftar[i].jumlah
+                 << " | " << daftar[i].tanggal
+                 << endl;
+        }
+    }
+
+    if (!ada) {
+        cout << "Tidak ada transaksi dengan kata kunci '" << kunci << "'" << endl;
+    }
 }
 
 void menu() {
