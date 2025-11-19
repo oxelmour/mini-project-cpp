@@ -40,14 +40,8 @@ void tambahTransaksi(Transaksi d[]) {
 
 }
 
-void tampilkanTransaksi(Transaksi d[]){
-    if(totalTransaksi == 0){
-        cout << "Belum ada transaksi." << endl;
-    }else{
-        for(int i = 0 ; i < totalTransaksi;i++){
-            cout << "No " << i+1 << " [ " << d[i].jenis << " ]" << "Kategori " << d[i].kategori << "- Rp " << d[i].jumlah << " ( " << d[i].tanggal << " )" << endl;
-        }
-    }
+void tampilkanTransaksi(){
+    cout << "Fitur Menampilkan Transaksi" << endl;
 }
 
 void tampilkanTotal() {
