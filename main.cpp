@@ -19,35 +19,57 @@ int totalTransaksi = 0;
 // Deklarasi terkait fitur fitur yang dibuat
 void tambahTransaksi(Transaksi d[]) {
     if(totalTransaksi == MAX_TRANSAKSI){
-        cout << "Maaf transaksi sudah penuh!";
+        cout << "\n[!] Maaf, penyimpanan transaksi sudah penuh!" << endl;
     }else{
-        cout << "Masukkan jenis transaksi (pemasukan/pengeluaran) :" ;
+        cout << "\n========================================" << endl;
+        cout << "       TAMBAH TRANSAKSI BARU           " << endl;
+        cout << "========================================" << endl;
+        
+        cout << "Masukkan Jenis (pemasukan/pengeluaran) : " ;
         cin >> d[totalTransaksi].jenis;
 
         cin.ignore();
-        cout << "Masukkan kategori barang" ;
+        cout << "Masukkan Kategori                      : " ;
         getline(cin,d[totalTransaksi].kategori);
 
-        cin.ignore();
-        cout << "Masukkan nominal : ";
+        // cin.ignore();
+        cout << "Masukkan Nominal (Rp)                  : ";
         cin >> d[totalTransaksi].jumlah;
 
-        cout << "Masukkan Tanggal :";
+        cin.ignore();
+        cout << "Masukkan Tanggal                       : ";
         getline(cin,d[totalTransaksi].tanggal);
 
         totalTransaksi++;
+        cout << "\n[v] Transaksi berhasil disimpan!" << endl;
     }
 
+
+    cout << endl << endl << endl << endl;
 }
 
 void tampilkanTransaksi(Transaksi d[]){
+    cout << "\n========================================" << endl;
+    cout << "           DAFTAR TRANSAKSI            " << endl;
+    cout << "========================================" << endl;
+
     if(totalTransaksi == 0){
-        cout << "Belum ada transaksi." << endl;
+        cout << "        Belum ada data transaksi.       " << endl;
+        cout << "========================================" << endl;
     }else{
         for(int i = 0 ; i < totalTransaksi;i++){
-            cout << "No " << i+1 << " [ " << d[i].jenis << " ]" << "Kategori " << d[i].kategori << "- Rp " << d[i].jumlah << " ( " << d[i].tanggal << " )" << endl;
+            cout << "No. " << i+1 << endl;
+            cout << "----------------------------------------" << endl;
+            cout << "Jenis    : " << d[i].jenis << endl;
+            cout << "Kategori : " << d[i].kategori << endl;
+            cout << "Nominal  : Rp " << d[i].jumlah << endl;
+            cout << "Tanggal  : " << d[i].tanggal << endl;
+            cout << "----------------------------------------" << endl;
         }
     }
+
+
+    cout << endl << endl << endl << endl;
 }
 
 void tampilkanTotal() {
@@ -61,53 +83,72 @@ void tampilkanTotal() {
             totalPengeluaran += daftar[i].jumlah;
         }
     }
-    cout << "Total Pemasukan: Rp " << totalPemasukan << endl;
-    cout << "Total Pengeluaran: Rp " << totalPengeluaran << endl;
-    cout << "Saldo Akhir: Rp " << (totalPemasukan - totalPengeluaran) << endl;
+    
+    cout << "\n========================================" << endl;
+    cout << "           LAPORAN KEUANGAN            " << endl;
+    cout << "========================================" << endl;
+    cout << " Total Pemasukan   : Rp " << totalPemasukan << endl;
+    cout << " Total Pengeluaran : Rp " << totalPengeluaran << endl;
+    cout << "----------------------------------------" << endl;
+    cout << " SALDO AKHIR       : Rp " << (totalPemasukan - totalPengeluaran) << endl;
+    cout << "========================================" << endl;
+
+
+    cout << endl << endl << endl << endl;
 }
 
 void filterTransaksi() {
-        if (totalTransaksi == 0) {
-        cout << "Belum ada transaksi." << endl;
+    if (totalTransaksi == 0) {
+        cout << "\n[!] Belum ada transaksi untuk difilter." << endl;
         return;
     }
 
     string filter;
-    cout << "=== Filter Transaksi ===";
-    cout << "Transaksi Apa? (Pemasukan/Pengeluaran): ";
+    cout << "\n========================================" << endl;
+    cout << "           FILTER TRANSAKSI            " << endl;
+    cout << "========================================" << endl;
+    cout << "Tampilkan (pemasukan/pengeluaran) : ";
     cin >> filter;
 
-    cout << "HASIL FILTER (" << filter << "):";
+    cout << "\n>>> HASIL FILTER: " << filter << " <<<" << endl;
 
     bool ada = false;
     for (int i = 0; i < totalTransaksi; i++) {
-        if (daftar[i].kategori == filter) {
+        if (daftar[i].jenis == filter) {
             ada = true;
-
-            cout << "No " << i+1
-                 << " | " << daftar[i].jenis
-                 << " | Rp " << daftar[i].jumlah
-                 << " | " << daftar[i].tanggal << endl;
+            cout << "----------------------------------------" << endl;
+            cout << "No. " << i+1 << endl;
+            cout << "Kategori : " << daftar[i].kategori << endl;
+            cout << "Nominal  : Rp " << daftar[i].jumlah << endl;
+            cout << "Tanggal  : " << daftar[i].tanggal << endl;
         }
     }
 
     if (!ada) {
-        cout << "Tidak ada transaksi kategori '" << filter << "'" endl;
+        cout << "\n[!] Tidak ada transaksi dengan jenis '" << filter << "'" << endl;
+    } else {
+        cout << "----------------------------------------" << endl;
     }
+
+
+    cout << endl << endl << endl << endl;
 }
 
 void cariTransaksi() {
     if (totalTransaksi == 0) {
-        cout << "Belum ada transaksi." << endl;
+        cout << "\n[!] Belum ada transaksi untuk dicari." << endl;
         return;
     }
 
-    cout << "=== Cari Transaksi ===" << endl;
+    cout << "\n========================================" << endl;
+    cout << "            CARI TRANSAKSI             " << endl;
+    cout << "========================================" << endl;
     cout << "Cari berdasarkan:" << endl;
-    cout << "1. Jenis" << endl;
-    cout << "2. Kategori" << endl;
-    cout << "3. Tanggal" << endl;
-    cout << "Pilih: ";
+    cout << "[1] Jenis (pemasukan/pengeluaran)" << endl;
+    cout << "[2] Kategori" << endl;
+    cout << "[3] Tanggal(1-30)" << endl;
+    cout << "----------------------------------------" << endl;
+    cout << "Pilih (1-3): ";
 
     int p;
     cin >> p;
@@ -120,7 +161,7 @@ void cariTransaksi() {
 
     bool ada = false;
 
-    cout << "\nHASIL PENCARIAN:" << endl;
+    cout << "\n>>> HASIL PENCARIAN <<<" << endl;
 
     for (int i = 0; i < totalTransaksi; i++) {
 
@@ -135,30 +176,37 @@ void cariTransaksi() {
 
         if (cocok) {
             ada = true;
-            cout << "No " << i + 1
-                 << " | " << daftar[i].jenis
-                 << " | " << daftar[i].kategori
-                 << " | Rp " << daftar[i].jumlah
-                 << " | " << daftar[i].tanggal
-                 << endl;
+            cout << "----------------------------------------" << endl;
+            cout << "No. " << i + 1 << endl;
+            cout << "Jenis    : " << daftar[i].jenis << endl;
+            cout << "Kategori : " << daftar[i].kategori << endl;
+            cout << "Nominal  : Rp " << daftar[i].jumlah << endl;
+            cout << "Tanggal  : " << daftar[i].tanggal << endl;
         }
     }
 
     if (!ada) {
-        cout << "Tidak ada transaksi dengan kata kunci '" << kunci << "'" << endl;
+        cout << "\n[!] Tidak ditemukan data dengan kata kunci '" << kunci << "'" << endl;
+    } else {
+        cout << "----------------------------------------" << endl;
     }
+
+    cout << endl << endl << endl << endl;
 }
 
 void menu() {
-    cout << " ==============================" << endl;
-    cout << "|     SILAHKAN PILIH MENU      |" << endl;
-    cout << " ==============================" << endl << endl;
-    cout << "1. Tambah Trensaksi" << endl;
-    cout << "2. Lihat Semua Transaksi" << endl;
-    cout << "3. Lihat Total Uang" << endl;
-    cout << "4. Filter Transaksi" << endl;
-    cout << "5. Cari Transaksi" << endl;
-    cout << "0. Keluar" << endl; 
+    cout << " =======================================" << endl;
+    cout << "|      APLIKASI MONEY MANAGEMENT       |" << endl;
+    cout << " =======================================" << endl;
+    cout << "| 1. Tambah Transaksi                   |" << endl;
+    cout << "| 2. Lihat Semua Transaksi              |" << endl;
+    cout << "| 3. Lihat Total Uang                   |" << endl;
+    cout << "| 4. Filter Transaksi                   |" << endl;
+    cout << "| 5. Cari Transaksi                     |" << endl;
+    cout << "| 0. Keluar                             |" << endl; 
+    cout << " =======================================" << endl;
+
+    cout << endl << endl << endl << endl;
 }
 
 // entry point program
@@ -166,10 +214,9 @@ int main() {
     int pilihan;
 
     do {
-        cout << endl << endl;
+        cout << endl;
         menu();
-        cout << endl << endl;
-        cout << "Pilih Menu: ";
+        cout << "Pilih Menu [0-5]: ";
         cin >> pilihan;
 
         switch (pilihan) {
@@ -197,6 +244,7 @@ int main() {
 
     } while (pilihan <= 5 && pilihan != 0);
 
+    cout << "\nTerima kasih telah menggunakan aplikasi ini." << endl;
     return 0;
 }
 
