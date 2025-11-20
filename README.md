@@ -4,11 +4,11 @@ Program ini dibuat untuk membantu mahasiswa dalam mengatur keuangan finansial ny
 <p align="center"> <a href="https://www.w3schools.com/cpp/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" alt="cplusplus" width="40" height="40"/> </a> </p>
 
 ## FITUR KEBANGGAAN
-1. Fitur Utama Input & Output Transaksi
-2. Tampilkan Riwayat Transaksi
+1. Fitur Utama Input & Output Pemasukan dan Pengeluaran
+2. Tampilkan Riwayat Pemasukan dan Pengeluaran
 3. Hitung Total Uang
-4. Filter Transaksi Berdasarkan Jenis (pemasukan/pengeluaran)
-5. Cari Transaksi
+4. Filter Pemasukan dan pengeluaran
+5. Cari Pemasukan dan pengeluaran
 6. Menu Navigasi
 
 ## Worker
