@@ -241,12 +241,13 @@ int main() {
             break;
 
             default :
-            cout << "Input tidak ada dalam daftar menu!" << endl;
+            cout << "Input tidak ada dalam pilihan menu atau anda memilih keluar." << endl;
+            cout << "Silahkan pilih sesuai dengan menu yang tersedia!" << endl;
             break;
+
         }
 
-
-    } while (pilihan != 0);
+    } while(pilihan != 0);
 
 
 
